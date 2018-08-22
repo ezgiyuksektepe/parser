@@ -36,6 +36,7 @@ fullPage = urllib2.urlopen("https://www.besmith.com/candidates/search-listings/?
 byteArray = fullPage.read()
 decoded = byteArray.decode("utf-8")
 decoded = decoded.replace(",", "")
+decoded = decoded.replace("&","")
 
 parser = Ezgi()
 parser.feed(decoded)
