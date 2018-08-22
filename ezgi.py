@@ -10,7 +10,6 @@ class Ezgi(HTMLParser):
     f.write("URL, Job Title, Location")
 
     def handle_starttag(self, tag, attr):
-        i = 0
 
         if tag == "a" and ("rel", "nofollow") in attr and ("class", "h2") in attr:
             self.save = True
