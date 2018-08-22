@@ -36,8 +36,8 @@ class Ezgi(HTMLParser):
 fullPage = urllib2.urlopen("https://www.besmith.com/candidates/search-listings/?page=2")
 byteArray = fullPage.read()
 decoded = byteArray.decode("utf-8")
-char_list = ['&', ',']
-final = re.sub("|".join(char_list), "", decoded)
+charList = ['&', ',']
+final = re.sub("|".join(charList), "", decoded)
 
 
 parser = Ezgi()
