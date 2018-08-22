@@ -1,5 +1,6 @@
 from HTMLParser import HTMLParser
 import urllib2
+import re
 
 f = open('ezgi.csv','wb')
 
@@ -35,9 +36,10 @@ class Ezgi(HTMLParser):
 fullPage = urllib2.urlopen("https://www.besmith.com/candidates/search-listings/?page=2")
 byteArray = fullPage.read()
 decoded = byteArray.decode("utf-8")
-decoded = decoded.replace(",", "")
-decoded = decoded.replace("&","")
+char_list = ['&', ',']
+final = re.sub("|".join(char_list), "", decoded)
+
 
 parser = Ezgi()
-parser.feed(decoded)
+parser.feed(final)
 f.close()
